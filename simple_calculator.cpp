@@ -2,6 +2,14 @@
 
 using namespace std;
 
+double divide(double a, double b) {
+    if (b == 0) {
+        cerr << "Error: Division by zero\n";
+        return 0;
+    }
+    return a / b;
+}
+
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
