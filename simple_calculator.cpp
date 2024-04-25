@@ -10,6 +10,10 @@ double divide(double a, double b) {
     return a / b;
 }
 
+double multiply(double a, double b) {
+    return a*b;
+}
+
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
