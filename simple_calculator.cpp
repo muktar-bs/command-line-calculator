@@ -10,8 +10,8 @@ double divide(double a, double b) {
     return a / b;
 }
 
-double multiply(double a, double b) {
-    return a*b;
+double multiply(double x, double y) {
+    return x*y;
 }
 
 
