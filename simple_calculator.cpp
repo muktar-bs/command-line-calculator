@@ -17,7 +17,9 @@ double substraction(double x, double y)
 {
     return max(x, y)-min(x, y);
 }
-
+double addition( double num1, double num2){
+    return num1+num2;
+}
 int main(int argc, char* argv[]) {
     if (argc != 4) {
         cerr << "Usage: " << argv[0] << " <operation> <operand1> <operand2>\n";
