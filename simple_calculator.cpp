@@ -2,49 +2,95 @@
 
 using namespace std;
 
-double divide(double a, double b) {
-    if (b == 0) {
-        cerr << "Error: Division by zero\n";
-        return 0;
-    }
-    return a / b;
-}
+int add(int a, int b);
+int subtract(int a, int b);
+int multiply(int a, int b);
+float divide(int a, int b);
+string getType(int num);
 
-double multiply(double x, double y) {
-    return x * y;
-    
-}
-double substraction(double x, double y)
-{
-    return max(x, y)-min(x, y);
-}
-double addition( double num1, double num2){
-    return num1+num2;
-}
 int main() {
-    char operation;
-    double operand1,operand2;
-    cin>>operation>>operand1>>operand2;
+    int choice, num1, num2;
 
-    double result;
-    switch (operation) {
-        case '+':
-            result = addition(operand1, operand2);
-            break;
-        case '-':
-            result = substraction(operand1, operand2);
-            break;
-        case '*':
-            result = multiply(operand1, operand2);
-            break;
-        case '/':
-            result = divide(operand1, operand2);
-            break;
-        default:
-            cerr << "Error: Invalid operation\n";
-            return 1; 
+    while (true) {
+        cout << "Select operation:" << endl;
+        cout << "1. Add" << endl;
+        cout << "2. Subtract" << endl;
+        cout << "3. Multiply" << endl;
+        cout << "4. Divide" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice (1-5): ";
+        cin >> choice;
+
+        if (choice == 5) {
+            cout << "Exiting program..." << endl;
+            break; 
+        }
+
+        cout << "Enter two numbers: ";
+        cin >> num1 >> num2;
+
+        switch (choice) {
+            case 1: {
+                int result = add(num1, num2);
+                cout << num1 << " + " << num2 << " = " << result << endl;
+                cout << getType(num1) << " + " << getType(num2) << " = " << getType(result) << endl;
+                break;
+            }
+            case 2: {
+                int result = subtract(num1, num2);
+                cout << num1 << " - " << num2 << " = " << result << endl;
+                cout << getType(num1) << " - " << getType(num2) << " = " << getType(result) << endl;
+                break;
+            }
+            case 3: {
+                int result = multiply(num1, num2);
+                cout << num1 << " * " << num2 << " = " << result << endl;
+                cout << getType(num1) << " * " << getType(num2) << " = " << getType(result) << endl;
+                break;
+            }
+            case 4: {
+                if (num2 != 0) {
+                    float result = divide(num1, num2);
+                    cout << num1 << " / " << num2 << " = " << result << endl;
+                    cout << getType(num1) << " / " << getType(num2) << " = " << getType(result) << endl;
+                } else {
+                    cout << "Cannot divide by zero!" << endl;
+                }
+                break;
+            }
+            default:
+                cout << "Invalid choice!" << endl;
+        }
     }
 
-    cout << "Result: " << result << endl;
     return 0;
+}
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+float divide(int a, int b) {
+    return static_cast<float>(a) / b;
+}
+
+string getType(int num) {
+    if (num % 2 == 0 && num > 0)
+        return "(Even; Positive;)";
+    else if (num % 2 != 0 && num > 0)
+        return "(Odd; Positive;)";
+    else if (num % 2 == 0 && num < 0)
+        return "(Even; Negative;)";
+    else if (num % 2 != 0 && num < 0)
+        return "(Odd; Negative;)";
+    else
+        return "(Zero;)";
 }
