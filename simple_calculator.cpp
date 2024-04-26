@@ -13,7 +13,9 @@ double divide(double a, double b) {
 double multiply(double x, double y) {
     return x*y;
 }
-
+double addition(double num1,double num2){
+    return num1+num2;
+}
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
