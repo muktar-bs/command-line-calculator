@@ -13,7 +13,10 @@ double divide(double a, double b) {
 double multiply(double x, double y) {
     return x*y;
 }
-
+double substraction(double x, double y)
+{
+    return max(x, y)-min(x, y);
+}
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
