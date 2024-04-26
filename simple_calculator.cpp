@@ -12,6 +12,7 @@ double divide(double a, double b) {
 
 double multiply(double x, double y) {
     return x * y;
+    
 }
 double substraction(double x, double y)
 {
@@ -20,23 +21,18 @@ double substraction(double x, double y)
 double addition( double num1, double num2){
     return num1+num2;
 }
-int main(int argc, char* argv[]) {
-    if (argc != 4) {
-        cerr << "Usage: " << argv[0] << " <operation> <operand1> <operand2>\n";
-        return 1;
-    }
-
-    char operation = argv[1][0];
-    double operand1 = stod(argv[2]);
-    double operand2 = stod(argv[3]);
+int main() {
+    char operation;
+    double operand1,operand2;
+    cin>>operation>>operand1>>operand2;
 
     double result;
     switch (operation) {
         case '+':
-            result = add(operand1, operand2);
+            result = addition(operand1, operand2);
             break;
         case '-':
-            result = subtract(operand1, operand2);
+            result = substraction(operand1, operand2);
             break;
         case '*':
             result = multiply(operand1, operand2);
