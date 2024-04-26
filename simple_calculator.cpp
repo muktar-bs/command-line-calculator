@@ -11,7 +11,7 @@ double divide(double a, double b) {
 }
 
 double multiply(double x, double y) {
-    return x*y;
+    return x * y;
 }
 double substraction(double x, double y)
 {
